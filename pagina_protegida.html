@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Uma música para você</title>
+<style>
+body{font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;background:#111;color:#fff}
+main{width:min(90%,420px);text-align:center;padding:32px;box-sizing:border-box}
+input,button{width:100%;box-sizing:border-box;padding:14px;border-radius:10px;border:0;margin-top:10px;font-size:16px}
+button{cursor:pointer}
+#music{display:none;margin-top:22px}
+a{display:block;background:#1ed760;color:#000;text-decoration:none;padding:14px;border-radius:10px;font-weight:700}
+#error{color:#ff7777;min-height:24px}
+</style>
+</head>
+<body>
+<main>
+<h1>🔒 Uma música para você</h1>
+<p>Digite a senha para descobrir.</p>
+<input id="pw" type="password" placeholder="Senha">
+<button onclick="unlock()">Desbloquear</button>
+<div id="error"></div>
+<div id="music">
+<p>🎵 <b>Californication</b><br>Red Hot Chili Peppers</p>
+<a href="https://open.spotify.com/album/5GGGpz46dArTfZ8BpgXXxV" target="_blank" rel="noopener">Ouvir no Spotify</a>
+</div>
+</main>
+<script>
+function unlock(){
+  const p=document.getElementById('pw').value;
+  if(p==='euamocoldplay'){
+    document.getElementById('music').style.display='block';
+    document.getElementById('error').textContent='';
+  }else{
+    document.getElementById('music').style.display='none';
+    document.getElementById('error').textContent='Senha incorreta.';
+  }
+}
+</script>
+</body>
+</html>
